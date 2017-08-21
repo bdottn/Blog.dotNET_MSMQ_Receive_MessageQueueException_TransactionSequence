@@ -37,5 +37,14 @@ namespace Service
 
             return (Student)message.Body;
         }
+
+        public Student NonTransactionalReceive(TimeSpan timeout)
+        {
+            this.messageQueue.Formatter = new XmlMessageFormatter(new Type[] { typeof(Student), });
+
+            var message = this.messageQueue.Receive(timeout);
+
+            return (Student)message.Body;
+        }
     }
 }
