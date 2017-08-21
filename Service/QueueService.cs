@@ -46,5 +46,14 @@ namespace Service
 
             return (Student)message.Body;
         }
+
+        public Student InternalReceive(TimeSpan timeout)
+        {
+            this.messageQueue.Formatter = new XmlMessageFormatter(new Type[] { typeof(Student), });
+
+            var message = this.messageQueue.Receive(timeout, MessageQueueTransactionType.Single);
+
+            return (Student)message.Body;
+        }
     }
 }
