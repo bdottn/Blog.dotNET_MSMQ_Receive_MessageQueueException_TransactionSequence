@@ -1,0 +1,2 @@
+# Blog.dotNET_MSMQ_Receive_MessageQueueException_TransactionSequence
+【.NET】MSMQ Receive 時發生 MessageQueueException：交易作業順序無效
