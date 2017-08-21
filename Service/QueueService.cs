@@ -55,5 +55,13 @@ namespace Service
 
             return (Student)message.Body;
         }
+
+        public Student ExternalReceive(TimeSpan timeout)
+        {
+            // use MSMQCoordinatedTransactionDispenser
+            // https://msdn.microsoft.com/en-us/library/ms706044(v=vs.110).aspx
+
+            throw new NotImplementedException();
+        }
     }
 }
