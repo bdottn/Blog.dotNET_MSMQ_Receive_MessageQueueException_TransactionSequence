@@ -90,5 +90,26 @@ namespace Service.UnitTest
 
             expected.ToExpectedObject().ShouldEqual(actual);
         }
+
+        [TestMethod]
+        public void SendNonTransactionalReceiveTest_傳送Student_預期接收一樣的Student()
+        {
+            var student =
+                new Student()
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "David",
+                    Height = 165,
+                    Weight = 85,
+                };
+
+            var expected = student;
+
+            this.service.Send(student);
+
+            var actual = this.service.NonTransactionalReceive(TimeSpan.FromSeconds(10));
+
+            expected.ToExpectedObject().ShouldEqual(actual);
+        }
     }
 }
